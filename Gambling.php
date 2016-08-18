@@ -18,7 +18,6 @@ curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 curl_setopt($ch, CURLOPT_COOKIEJAR, "cookie.txt");
 curl_exec($ch);
 
-// $url = "http://www.228365365.com/app/member/FT_browse/body_var.php?uid=test00&rtype=re&langx=zh-cn&mtype=3&delay=&league_id=";
 $url = "http://www.228365365.com/app/member/FT_browse/body_var.php?uid=test00&rtype=r&langx=zh-cn&mtype=3&page_no=0&league_id=&hot_game=";
 
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -26,7 +25,7 @@ curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_FAILONERROR, true);
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-// curl_setopt($ch, CURLOPT_COOKIEFILE, "cookie.txt");
+curl_setopt($ch, CURLOPT_COOKIEFILE, "cookie.txt");
 $pageContent = curl_exec($ch);
 curl_close($ch);
 
@@ -116,21 +115,3 @@ function deleteDate() {
     $delete = DB::$db->prepare($sql);
     $delete->execute();
 }
-
-//         data[0]=id
-//         data[2]聯賽
-//         data[1]时间
-//         data[5]vs[6]赛事
-//         data[15] [16] [17]全场-独赢
-//         data[9] [10]全场-让球
-//         data[13] [14]全场-大小
-//         data[20] 单 [21]双
-//         data[31] [32] [33]半场-独赢
-//         data[25] [26]半场-让球
-//         data[29] [30]半场-大小*/
-// $sql = "INSERT INTO  `data` SET `day` = :day,`name` = :name, `name1` = :name1,
-// `name2` = :name2, `overalHandicap1` = :overalHandicap1, `overalHandicap2` = :overalHandicap2,
-// `overallWin1` = :overallWin1, `overallWin2` = :overallWin2, `overallWin3` = :overallWin3,
-// `single` = :single, `double` = :double, `halfHandicap1` = :halfHandicap1,
-// `halfHandicap2` = :halfHandicap2, `halfSize1` = :halfSize1, `halfSize2` = :halfSize2,
-// `halfWin1` = :halfWin1, `halfWin2` = :halfWin2, `halfWin3` = :halfWin3 where id = 1";
